@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "71628663163",
+    "project_id": "lazy-panda-71884",
+    "storage_bucket": "lazy-panda-71884.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71628663163:android:681437dd5887fbe33a75de",
+        "android_client_info": {
+          "package_name": "com.lazypanda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71628663163-ku8qph5f1os4ukpt3iu8opue79vbv5dp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lazypanda",
+            "certificate_hash": "88d237b339af18a24bf739218feb21a199362e2b"
+          }
+        },
+        {
+          "client_id": "71628663163-u58f209ffadjlh60otquvsjmg3lg71ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCGBanrRJSAzs3Y4mcXeqEyKFhy07zuVI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71628663163-u58f209ffadjlh60otquvsjmg3lg71ps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

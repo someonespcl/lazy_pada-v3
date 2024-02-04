@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lazy Panda 🐼</string>
+    <string name="back"><u>Back</u></string>
+    <string name="welcome_discription"><font color="#FFC100"><b><big>Pandas</big></b></font> are proof that you can be fat, lazy, and still be <font color="#FF2C4B"><b><big>Loved</big></b></font> by everyone.”</string>
+    <string name="welcome_sub_text">Dont,\nBe <font color="#FF2C4B"><b><big>Lazy</big></b></font> in\n<b><big>Doing This.</big></b></string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="continue_with_google">Continue With Google</string>
+    <string name="login_into_ac">Login into\nyour <font color="#ffc100"><b><big>Account.</big></b></font></string>
+    <string name="login_discription">Enter the email address and password where you would like to login into your account</string>
+    <string name="register_into_ac">Register into\nyour <font color="#ffc100"><b><big>Account.</big></b></font></string>
+    <string name="register_discription">Start your journey with a simple <font color="#ffc100"><b>Registration</b></font> with just email address and password</string>
+    <string name="name">Name</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="proceed">Proceed</string>
+    <string name="resend_link">Resend Link</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forget_pass">Forget Password ?</string>
+    <string name="dont_have_ac">Dont Have Account ? <font color="#FFC100"><b><big><u>Create Now</u></big></b></font></string>
+    <string name="already_have_an_ac">Already Have Account ? <font color="#ffc100"><b><big><u>Login Now</u></big></b></font></string>
+    <string name="verify_email">Verify Your Email Address.</string>
+    <string name="verify_email_discription">We have sent a email verification link to your email address. Please verify your email address by clicking on the link provided.</string>
+    <string name="verify_enail_sub_text">After Successful Verification It Will Automatically Redirect To Profile Activity.\nIn Case It Doesnt Happen Click The Button Below.</string>
+    <string name="type_something">Type Something....</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_message">Delete Message</string>
+    <string name="delete_message_discription">Are you sure you want to delete this message.</string>
+    <string name="this_msg_deleted_discription"><font color="#FF2C4B"><big><b>This Message Was Deleted!.</b></big></font></string>
+</resources>

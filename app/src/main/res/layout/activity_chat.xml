@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".activities.ChatActivity">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/profileContainer">
+
+        <ImageButton
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/arrow_back"
+            android:background="@android:color/transparent"
+            app:backgroundTint="@null"
+            android:id="@+id/chatBackBtn"
+            android:layout_gravity="start" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:clickable="true"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            android:id="@+id/showUserChatProfile" />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/poppins_medium"
+                android:id="@+id/showUsersName" />
+
+
+            <TextView
+                android:layout_marginTop="4dp"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textAppearance="?attr/textAppearanceBodySmall"
+                android:includeFontPadding="false"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@android:color/white"
+                android:id="@+id/showUserPresentStatus" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:visibility="gone"
+            android:src="@drawable/trash"
+            android:layout_marginEnd="8dp"
+            android:background="@android:color/transparent"
+            app:backgroundTint="@null"
+            android:id="@+id/deleteIcMsgBtn"
+            android:layout_gravity="end" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="6dp"
+        android:layout_below="@id/profileContainer"
+        android:layout_above="@id/msgContainer"
+        android:layout_marginTop="6dp"
+        android:overScrollMode="never"
+        android:id="@+id/showMessages" />
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:paddingEnd="12dp"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp"
+        android:paddingStart="12dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/msgContainer">
+
+        <EditText
+            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:background="@drawable/edit_txt_bg"
+            android:hint="@string/type_something"
+            app:backgroundTint="#1affffff"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@android:color/white"
+            android:paddingHorizontal="12dp"
+            android:layout_weight="1"
+            android:inputType="textCapSentences"
+            android:id="@+id/enterMessage" />
+
+        <ImageButton
+            android:layout_height="50dp"
+            android:layout_width="50dp"
+            android:src="@drawable/send_outline"
+            android:background="@drawable/edit_txt_bg"
+            app:backgroundTint="#1affffff"
+            android:layout_marginStart="6dp"
+            android:id="@+id/sendMessage"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+
+</RelativeLayout>

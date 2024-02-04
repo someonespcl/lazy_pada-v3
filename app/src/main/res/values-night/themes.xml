@@ -1,0 +1,25 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style
+        name="lazypanda"
+        parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!-- <item name="colorPrimary">@color/main_yellow</item> <item name="colorAccent">#FFC100</item> <item name="android:navigationBarColor">@android:color/transparent</item> <item name="android:statusBarColor">@android:color/transparent</item> <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item> <item name="android:windowTranslucentNavigation">true</item> <item name="android:windowTranslucentStatus">true</item> <item name="android:windowLightStatusBar">true</item> <item name="android:forceDarkAllowed">false</item> -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item
+            name="android:windowLightNavigationBar"
+            tools:targetApi="o_mr1">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="colorAccent">#FFC100</item>
+    </style>
+
+    <style
+        name="ShapeAppearanceOverlay.App.CornerSize50Percent"
+        parent="">
+        <item name="cornerSize">32%</item>
+    </style>
+
+</resources>

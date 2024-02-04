@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:scrollbars="none"
+     android:padding="24dp"
+     android:clipChildren="false"
+     android:clipToPadding="false"
+     android:overScrollMode="never"
+     tools:context=".activities.WelcomeActivity">
+
+    <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:orientation="vertical">
+
+        <LinearLayout
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                 android:layout_height="300dp"
+                 android:layout_width="match_parent"
+                 android:minHeight="256dp"
+                 app:lottie_rawRes="@raw/lazy_panda"
+                 app:lottie_autoPlay="true"
+                 app:lottie_loop="true"
+                 android:layout_gravity="center_horizontal" />
+
+            <TextView
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:textAlignment="center"
+                 android:textAppearance="?attr/textAppearanceTitleLarge"
+                 android:includeFontPadding="false"
+                 android:fontFamily="@font/poppins_medium"
+                 android:textColor="@android:color/white"
+                 android:layout_marginTop="8dp"
+                 android:text="@string/welcome_discription" />
+
+        </LinearLayout>
+
+        <LinearLayout
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:orientation="vertical"
+            android:layout_marginTop="32dp"
+             android:layout_gravity="bottom">
+
+            <TextView
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:textAlignment="viewStart"
+                 android:textAppearance="?attr/textAppearanceHeadlineLarge"
+                 android:includeFontPadding="false"
+                 android:fontFamily="@font/poppins_semibold"
+                 android:textColor="@android:color/white"
+                 android:layout_gravity="start"
+                 android:text="@string/welcome_sub_text" />
+
+            <Button
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 app:backgroundTint="@null"
+                 android:onClick="goToLoginScreen"
+                 android:textColor="@android:color/white"
+                 android:layout_marginTop="16dp"
+                 android:background="@drawable/light_round_btn"
+                 android:minHeight="48dp"
+                 android:includeFontPadding="false"
+                 android:fontFamily="@font/poppins_semibold"
+                 android:textAllCaps="false"
+                 android:id="@+id/loginBtn"
+                 android:text="@string/login" />
+
+            <Button
+                 android:layout_height="wrap_content"
+                 android:layout_width="match_parent"
+                 android:background="@drawable/round_btn"
+                 app:backgroundTint="@null"
+                 android:onClick="goToRegisterA"
+                 android:includeFontPadding="false"
+                 android:fontFamily="@font/poppins_medium"
+                 android:textAllCaps="false"
+                 android:textColor="@android:color/black"
+                 android:layout_marginTop="12dp"
+                 android:text="@string/register"
+                 android:id="@+id/registerBtn" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

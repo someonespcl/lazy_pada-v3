@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:scrollbars="none"
+     android:padding="24dp"
+     android:clipChildren="false"
+     android:clipToPadding="false"
+     android:overScrollMode="never"
+     android:animateLayoutChanges="true"
+     tools:context=".activities.LoginActivity">
+
+    <LinearLayout
+         android:layout_height="match_parent"
+         android:layout_width="match_parent"
+         android:orientation="vertical">
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:textAlignment="center"
+             android:textAppearance="?attr/textAppearanceTitleLarge"
+             android:onClick="goBack"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:textAllCaps="false"
+             android:textColor="@android:color/white"
+             android:text="@string/back" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:textAlignment="viewStart"
+             android:textAppearance="?attr/textAppearanceHeadlineLarge"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:textAllCaps="false"
+             android:textColor="@android:color/white"
+             android:layout_marginTop="64dp"
+             android:text="@string/login_into_ac" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:textAlignment="viewStart"
+             android:textAppearance="?attr/textAppearanceBodyLarge"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:textAllCaps="false"
+             android:textColor="@android:color/white"
+             android:layout_marginTop="8dp"
+             android:text="@string/login_discription" />
+
+        <EditText
+             android:layout_height="50dp"
+             android:layout_width="match_parent"
+             android:drawablePadding="4dp"
+             android:textColor="@android:color/white"
+             android:layout_marginTop="16dp"
+             android:background="@drawable/light_round_btn"
+             android:hint="@string/email"
+             android:minHeight="48dp"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:backgroundTint="@null"
+             android:paddingHorizontal="12dp"
+             android:inputType="textEmailAddress"
+             android:id="@+id/eInput" />
+
+        <EditText
+             android:layout_height="50dp"
+             android:layout_width="match_parent"
+             android:drawablePadding="4dp"
+             android:drawableEnd="@drawable/eye_close"
+             android:textColor="@android:color/white"
+             android:layout_marginTop="16dp"
+             android:background="@drawable/light_round_btn"
+             android:hint="@string/password"
+             android:minHeight="48dp"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:backgroundTint="@null"
+             android:paddingHorizontal="12dp"
+             android:inputType="textPassword"
+             android:id="@+id/passInput" />
+
+        <LinearLayout
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:orientation="horizontal"
+             android:layout_marginTop="12dp">
+
+            <CheckBox
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:textAppearance="?attr/textAppearanceTitleMedium"
+                 android:includeFontPadding="false"
+                 android:fontFamily="@font/poppins_medium"
+                 android:textColor="@android:color/white"
+                 app:buttonTint="@android:color/white"
+                 android:layout_weight="1"
+                 android:text="@string/remember_me"
+                 android:id="@+id/rememberMe" />
+
+            <TextView
+                 android:layout_height="wrap_content"
+                 android:layout_width="wrap_content"
+                 android:textAppearance="?attr/textAppearanceTitleMedium"
+                 android:onClick="forgetPassword"
+                 android:includeFontPadding="false"
+                 android:fontFamily="@font/poppins_medium"
+                 android:textColor="@android:color/white"
+                 android:text="@string/forget_pass"
+                 android:id="@+id/forgetPass" />
+
+        </LinearLayout>
+
+        <Button
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             android:background="@drawable/round_btn"
+             app:backgroundTint="@null"
+             android:minHeight="48dp"
+             android:onClick="loginUser"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:textColor="@android:color/black"
+             android:layout_marginTop="12dp"
+             android:text="@string/login"
+             android:id="@+id/loginButton" />
+
+        <Button
+             android:layout_height="wrap_content"
+             android:layout_width="match_parent"
+             app:backgroundTint="@null"
+             android:onClick="signInWithGoogleAc"
+             android:textColor="@android:color/black"
+             android:layout_marginTop="12dp"
+             android:drawableLeft="@drawable/google_icon"
+             android:background="@drawable/google_btn"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:drawableRight="@drawable/arrow_left"
+             android:paddingHorizontal="10dp"
+             android:id="@+id/signInWithGoogle"
+             android:text="@string/continue_with_google" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:textAppearance="?attr/textAppearanceBodyLarge"
+             android:onClick="goToRegister"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:textColor="@android:color/white"
+             android:layout_marginTop="16dp"
+             android:layout_gravity="center_horizontal"
+             android:text="@string/dont_have_ac"
+             android:id="@+id/createAc" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

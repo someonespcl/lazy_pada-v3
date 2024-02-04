@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:background="@android:color/transparent"
+     android:padding="20dp"
+     android:orientation="vertical">
+
+    <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:orientation="horizontal">
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:drawablePadding="6dp"
+             app:drawableStartCompat="@drawable/alert"
+             android:textAppearance="?attr/textAppearanceTitleLarge"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:textColor="#c72229"
+             android:drawableTint="#c72229"
+             android:text="@string/delete_message" />
+
+    </LinearLayout>
+
+    <TextView
+         android:layout_height="wrap_content"
+         android:layout_width="wrap_content"
+         android:textAppearance="?attr/textAppearanceBodyMedium"
+         android:includeFontPadding="false"
+         android:fontFamily="@font/poppins_regular"
+         android:textColor="@android:color/white"
+         android:layout_marginTop="6dp"
+         android:text="@string/delete_message_discription" />
+
+    <LinearLayout
+         android:layout_height="wrap_content"
+         android:layout_width="match_parent"
+         android:orientation="horizontal"
+         android:layout_marginTop="12dp">
+
+        <Button
+             android:layout_height="wrap_content"
+             android:layout_width="0dp"
+             android:background="@android:color/transparent"
+             app:backgroundTint="@null"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:textColor="@android:color/white"
+             android:layout_weight="1"
+             android:id="@+id/cancelDeleteMsgBtn"
+             android:text="@string/cancel" />
+
+        <Button
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:background="@drawable/delete_msg_btn"
+             app:backgroundTint="@null"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_medium"
+             android:textAllCaps="false"
+             android:textColor="@android:color/white"
+             android:text="@string/delete_message"
+             android:id="@+id/deleteMessageBtn" />
+
+    </LinearLayout>
+
+</LinearLayout>

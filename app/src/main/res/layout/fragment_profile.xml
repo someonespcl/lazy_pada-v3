@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:overScrollMode="never"
+    tools:context=".activities.Fragment_Profile">
+    
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        
+        <ImageView
+            android:id="@+id/logout"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:src="@drawable/edit_outline"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp" />
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="80dp">
+
+            <ImageView
+                android:id="@+id/profilePic"
+                android:layout_height="150dp"
+                android:layout_width="150dp"
+                android:adjustViewBounds="true" />
+
+            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/userProfileName"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:id="@+id/userProfileEmail"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/userProfilePhoneN"
+                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/circles_bg" />
+
+    </RelativeLayout>
+
+</ScrollView>

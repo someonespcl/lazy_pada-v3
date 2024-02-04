@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:padding="24dp"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:overScrollMode="ifContentScrolls"
+    tools:context=".activities.RegisterActivity">
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textAlignment="center"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:onClick="goBack"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:text="@string/back" />
+
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textAlignment="viewStart"
+            android:textAppearance="?attr/textAppearanceHeadlineLarge"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="64dp"
+            android:text="@string/register_into_ac" />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textAlignment="viewStart"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="8dp"
+            android:text="@string/register_discription" />
+
+        <EditText
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/light_round_btn"
+            android:hint="@string/email"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:backgroundTint="@null"
+            android:paddingHorizontal="10dp"
+            android:inputType="textEmailAddress"
+            android:id="@+id/emailInput" />
+
+        <EditText
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/light_round_btn"
+            android:hint="@string/phone_number"
+            android:minHeight="48dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:backgroundTint="@null"
+            android:paddingHorizontal="10dp"
+            android:inputType="phone"
+            android:id="@+id/phnNInput" />
+
+        <EditText
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/light_round_btn"
+            android:hint="@string/name"
+            android:minHeight="48dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:backgroundTint="@null"
+            android:paddingHorizontal="10dp"
+            android:inputType="textPersonName"
+            android:id="@+id/nameInput" />
+
+        <EditText
+            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/light_round_btn"
+            android:hint="@string/password"
+            android:minHeight="48dp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:backgroundTint="@null"
+            android:paddingHorizontal="10dp"
+            android:inputType="textPassword"
+            android:id="@+id/passwordInput" />
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="@drawable/round_btn"
+            app:backgroundTint="@null"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:textColor="@android:color/black"
+            android:layout_marginTop="16dp"
+            android:text="@string/register"
+            android:id="@+id/registerBtn" />
+        
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:textAppearance="?attr/textAppearanceBodyLarge"
+             android:onClick="goToLogin"
+             android:includeFontPadding="false"
+             android:fontFamily="@font/poppins_light"
+             android:textColor="@android:color/white"
+             android:layout_marginTop="16dp"
+             android:layout_gravity="center_horizontal"
+             android:text="@string/dont_have_ac"
+             android:id="@+id/createAc" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

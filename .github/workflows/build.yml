@@ -1,0 +1,54 @@
+name: Build APK
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'adopt'
+    
+    - name: Make Gradlew Executable
+      run: chmod +x ./gradlew
+
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease
+      
+    - name: Upload arm64-v8a Debug APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: arm64-v8a debug-apk
+        path: app/build/outputs/apk/debug/app-arm64-v8a-debug.apk
+    
+    - name: Upload armeabi-v7a Debug APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: armeabi-v7a debug-apk
+        path: app/build/outputs/apk/debug/app-armeabi-v7a-debug.apk
+    
+    - name: Upload arm64-v8a Release APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: arm64-v8a release-apk
+        path: app/build/outputs/apk/release/app-arm64-v8a-release.apk
+        
+    - name: Upload armeabi-v7a Release APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: armeabi-v7a release-apk
+        path: app/build/outputs/apk/release/app-armeabi-v7a-release.apk

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:elevation="8dp"
+     app:cardCornerRadius="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+         android:layout_height="match_parent"
+         android:layout_width="match_parent">
+
+        <ImageView
+             android:layout_height="24dp"
+             android:layout_width="24dp"
+             android:src="@drawable/alert"
+             app:layout_constraintTop_toTopOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             android:layout_marginTop="8dp"
+             android:layout_marginStart="10dp"
+             android:id="@+id/alertIcon" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:textSize="18sp"
+             app:layout_constraintLeft_toRightOf="@id/alertIcon"
+             android:layout_marginLeft="15dp"
+             android:textColor="@color/main_red"
+             app:layout_constraintBottom_toBottomOf="@id/alertIcon"
+             android:textAlignment="center"
+             app:layout_constraintTop_toTopOf="@id/alertIcon"
+             android:fontFamily="@font/poppins_medium"
+             android:textAllCaps="false"
+             android:id="@+id/deactivateAcTxt"
+             android:text="Deactivate account" />
+
+        <TextView
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_marginEnd="16dp"
+             android:textColor="@android:color/white"
+             android:layout_marginTop="16dp"
+             android:layout_marginStart="16dp"
+             app:layout_constraintTop_toBottomOf="@id/deactivateAcTxt"
+             android:textAlignment="center"
+             app:layout_constraintStart_toStartOf="@id/alertIcon"
+             android:fontFamily="@font/poppins_regular"
+             android:textAllCaps="false"
+             app:layout_constraintEnd_toEndOf="@id/deactivateAcTxt"
+             android:id="@+id/deleteAcInfo"
+             android:text="Are you sure you want to deactivate your account?\nBy doing this you lose all of your saved data will not be able to retrieve it." />
+
+        <LinearLayout
+             android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:layout_marginBottom="16dp"
+             android:orientation="horizontal"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintBottom_toBottomOf="parent"
+             android:layout_marginTop="32dp"
+             app:layout_constraintTop_toBottomOf="@id/deleteAcInfo">
+
+            <Button
+                 android:layout_height="wrap_content"
+                 android:layout_width="0dp"
+                 android:background="@android:color/transparent"
+                 android:textAlignment="center"
+                 android:fontFamily="@font/poppins_medium"
+                 android:textAllCaps="false"
+                 android:backgroundTint="@null"
+                 android:textColor="@android:color/white"
+                 android:layout_weight="1"
+                 android:id="@+id/cancelBtn"
+                 android:text="Cancel" />
+
+            <Button
+                 android:layout_height="wrap_content"
+                 android:layout_width="0dp"
+                 android:background="@color/main_red"
+                 android:textAlignment="center"
+                 android:fontFamily="@font/poppins_medium"
+                 android:textAllCaps="false"
+                 android:backgroundTint="@null"
+                 android:textColor="@android:color/white"
+                 android:layout_weight="1"
+                 android:id="@+id/deleteAcBtn"
+                 android:text="Delete" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

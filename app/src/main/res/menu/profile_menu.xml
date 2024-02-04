@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/logOutUser"
+        android:title="Logout"
+        android:name="Logout" />
+    
+    <item
+        android:id="@+id/changeProfilePic"
+        android:title="Profile pic"
+        android:name="Edit Profile Pic"/>
+
+</menu>

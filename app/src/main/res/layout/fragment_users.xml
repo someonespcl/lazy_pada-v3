@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
+     android:paddingEnd="16dp"
+     android:orientation="vertical"
+     android:paddingBottom="20dp"
+     android:paddingStart="16dp"
+     android:paddingTop="30dp"
+     tools:context=".activities.UsersFragment">
+
+    <EditText
+         android:layout_height="50dp"
+         android:layout_width="match_parent"
+         android:drawablePadding="4dp"
+         android:imeOptions="actionUnspecified"
+         android:textColor="@android:color/white"
+         android:layout_marginTop="12dp"
+         android:ems="10"
+         android:background="@drawable/light_round_btn"
+         android:hint="Search Users"
+         android:fontFamily="@font/poppins_regular"
+         android:backgroundTint="@null"
+         android:drawableRight="@drawable/search_icon"
+         android:paddingHorizontal="16dp"
+         android:inputType="textPersonName|textEmailAddress"
+         android:id="@+id/search_users" />
+
+    <androidx.recyclerview.widget.RecyclerView
+         android:layout_height="match_parent"
+         android:layout_width="match_parent"
+         android:scrollbars="none"
+         android:layout_marginTop="16dp"
+         android:id="@+id/users_recyclerview"
+         android:overScrollMode="never" />
+
+</LinearLayout>
