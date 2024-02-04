@@ -23,9 +23,6 @@
 -dontwarn com.yalantis.ucrop**
 -keep class com.yalantis.ucrop** { *; }
 -keep interface com.yalantis.ucrop** { *; }
--keepnames class * implements java.io.Serializable
 -keep class com.lazypanda.modelClass.** { *; }
--keep class android.support.v8.renderscript.** { *; }
--keep class androidx.renderscript.** { *; }
-# Keep Firebase classes
--keep class com.google.firebase.** { *; }
+-dontwarn com.daimajia.easing.Glider
+-dontwarn com.daimajia.easing.Skill
