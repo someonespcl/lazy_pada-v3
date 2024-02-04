@@ -6,7 +6,7 @@ plugins {
 android {
     namespace 'com.lazypanda'
     compileSdk 33
-    buildToolsVersion "34.0.4"
+    buildToolsVersion "34.0.0"
 
     defaultConfig {
         applicationId "com.lazypanda"
