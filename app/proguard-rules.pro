@@ -26,3 +26,6 @@
 -keep class com.lazypanda.modelClass.** { *; }
 -dontwarn com.daimajia.easing.Glider
 -dontwarn com.daimajia.easing.Skill
+
+-keepattributes Signature
+-keepclassmembers class com.lazypanda.models.** { *; }
