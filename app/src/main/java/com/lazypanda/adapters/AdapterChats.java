@@ -40,12 +40,7 @@ public class AdapterChats extends RecyclerView.Adapter<AdapterChats.ChatHolder> 
     List<ModelChat> chatList;
     private List<Integer> selectedMessages = new ArrayList<>();
     String imageUrl;
-    
-    private int latestReceivedMessagePosition = -1;
-
     private Dialog dialog;
-    private MediaPlayer sentMsgSound, receivedMsgSound;
-
     FirebaseUser fUser;
 
     public AdapterChats(Context context, List<ModelChat> chatList, String imageUrl) {
@@ -78,18 +73,6 @@ public class AdapterChats extends RecyclerView.Adapter<AdapterChats.ChatHolder> 
         String time = sdf.format(result);
         chatHolder.user_message_view.setText(message);
         chatHolder.showTimeStamp.setText(time);
-        
-        receivedMsgSound = MediaPlayer.create(context, R.raw.receive);
-        String currentUserUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        String messageSenderUid = chatList.get(i).getSender();
-        
-        if (!currentUserUid.equals(messageSenderUid)) {
-            latestReceivedMessagePosition = i;
-        }
-        
-        if (i == latestReceivedMessagePosition) {
-            playReceivedMessageSound();
-        }
 
         try {
             Glide.with(context).load(imageUrl).into(chatHolder.user_image_view);
@@ -118,12 +101,6 @@ public class AdapterChats extends RecyclerView.Adapter<AdapterChats.ChatHolder> 
         	chatHolder.itemView.setBackgroundColor(Color.parseColor("#1a808080"));
         } else {
             chatHolder.itemView.setBackgroundColor(Color.TRANSPARENT);
-        }
-    }
-
-    private void playReceivedMessageSound() {
-        if (receivedMsgSound != null) {
-            receivedMsgSound.start();
         }
     }
 

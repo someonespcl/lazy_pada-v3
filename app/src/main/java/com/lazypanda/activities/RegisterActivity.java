@@ -86,7 +86,6 @@ public class RegisterActivity extends AppCompatActivity {
 							data.put("phoneN", binding.phnNInput.getText().toString().trim());
 							data.put("image", "");
                             data.put("onlineStatus", "online");
-                            data.put("typingStatus", "noOne");
 							data.put("password", password);
 
 							FirebaseDatabase database = FirebaseDatabase.getInstance();

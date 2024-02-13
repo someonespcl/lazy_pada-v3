@@ -1,7 +1,6 @@
 package com.lazypanda.activities;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import android.text.Editable;
@@ -11,7 +10,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +18,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.lazypanda.adapters.AdapterChats;
 import com.lazypanda.databinding.ActivityChatBinding;
@@ -35,9 +34,7 @@ public class ChatActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseDatabase fDatabase;
     private DatabaseReference usersRefernce, userForSeenRefer;
-
     ValueEventListener seenListener;
-    private MediaPlayer sendMsgSound;
 
     List<ModelChat> chatList;
     AdapterChats adapterChat;
@@ -55,9 +52,7 @@ public class ChatActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         fDatabase = FirebaseDatabase.getInstance();
         usersRefernce = fDatabase.getReference("Users");
-        
-        sendMsgSound = MediaPlayer.create(ChatActivity.this, R.raw.sent);
-        
+
         Intent intent = getIntent();
         hisUid = intent.getStringExtra("hisUid");
         hisImage = intent.getStringExtra("hisImage");
@@ -80,14 +75,15 @@ public class ChatActivity extends AppCompatActivity {
         binding.sendMessage.setOnClickListener(
                 v -> {
                     String enteredMessage = binding.enterMessage.getText().toString().trim();
-                    if (enteredMessage.isEmpty()) {
+                    if (!enteredMessage.isEmpty()) {
+                        sendEnteredMessage(enteredMessage);
+                    } else {
+
                         Toast.makeText(
                                         ChatActivity.this,
                                         "Cannot send Empty Message",
                                         Toast.LENGTH_LONG)
                                 .show();
-                    } else {
-                        sendEnteredMessage(enteredMessage);
                     }
                 });
 
@@ -100,15 +96,15 @@ public class ChatActivity extends AppCompatActivity {
 
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
-                        if(count > 0) {
-                        	
+                        if (s.toString().trim().length() > 0) {
+                            checkTypingStatus(hisUid);
                         } else {
-                            
+                            checkTypingStatus(null);
                         }
                     }
 
                     @Override
-                    public void afterTextChanged(Editable arg0) {}
+                    public void afterTextChanged(Editable s) {}
                 });
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(ChatActivity.this);
@@ -117,6 +113,7 @@ public class ChatActivity extends AppCompatActivity {
         binding.showMessages.smoothScrollToPosition(0);
         showMessages();
         seenMessages();
+        updateTypingStatus();
     }
 
     private void showMessages() {
@@ -139,11 +136,6 @@ public class ChatActivity extends AppCompatActivity {
                         adapterChat = new AdapterChats(ChatActivity.this, chatList, hisImage);
                         adapterChat.notifyDataSetChanged();
                         binding.showMessages.setAdapter(adapterChat);
-                        DefaultItemAnimator itemAnimator = new DefaultItemAnimator();
-                        itemAnimator.setAddDuration(500);
-                        itemAnimator.setRemoveDuration(500);
-                        itemAnimator.setChangeDuration(500);
-                        binding.showMessages.setItemAnimator(itemAnimator);
                         binding.showMessages.scrollToPosition(adapterChat.getItemCount() - 1);
                     }
 
@@ -164,14 +156,66 @@ public class ChatActivity extends AppCompatActivity {
         msgMap.put("timeStamp", timeStamp);
         msgMap.put("isSeen", false);
         databaseRefer.child("Chats").push().setValue(msgMap);
-        playSentMessageSound();
         binding.enterMessage.setText(null);
     }
+
+    private void checkTypingStatus(String typing) {
+        DatabaseReference dbRefer =
+                FirebaseDatabase.getInstance().getReference("Users").child(myUid);
+        HashMap<String, Object> typingStatus = new HashMap<>();
+        typingStatus.put("typingTo", typing);
+        dbRefer.updateChildren(typingStatus);
+    }
     
-    private void playSentMessageSound() {
-        if (sendMsgSound != null) {
-            sendMsgSound.start();
-        }
+    private void updateTypingStatus() {
+        DatabaseReference usersRef = FirebaseDatabase.getInstance().getReference("Users");
+        Query typingRefer = usersRef.child(hisUid); // Query the specific user
+        typingRefer.addValueEventListener(
+                new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            String typingStatus = snapshot.child("typingTo").getValue(String.class);
+                            if (typingStatus != null) {
+                                if (typingStatus.equals(myUid)) {
+                                    // Show typing indicator for the other user on the right side
+                                    binding.typingContainer.setVisibility(View.VISIBLE);
+                                    binding.typingRightContainer.setVisibility(View.VISIBLE);
+                                    binding.typingLeftContainer.setVisibility(View.GONE);
+                                } else if (typingStatus.equals(hisUid)) {
+                                    // Show typing indicator for the current user on the left side
+                                    binding.typingContainer.setVisibility(View.VISIBLE);
+                                    binding.typingLeftContainer.setVisibility(View.VISIBLE);
+                                    binding.typingRightContainer.setVisibility(View.GONE);
+                                    try {
+                                        Glide.with(ChatActivity.this)
+                                                .load(hisImage)
+                                                .into(binding.typingLeftUserDp);
+                                    } catch (Exception e) {
+
+                                    }
+                                } else {
+                                    // Hide typing indicator
+                                    binding.typingContainer.setVisibility(View.GONE);
+                                    binding.typingLeftContainer.setVisibility(View.GONE);
+                                    binding.typingRightContainer.setVisibility(View.GONE);
+                                }
+                            } else {
+                                // Hide typing indicator
+                                binding.typingContainer.setVisibility(View.GONE);
+                                binding.typingLeftContainer.setVisibility(View.GONE);
+                                binding.typingRightContainer.setVisibility(View.GONE);
+                            }
+                        } else {
+                            // Handle the case when the user does not exist
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Handle database error
+                    }
+                });
     }
 
     private void seenMessages() {
@@ -219,7 +263,10 @@ public class ChatActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        userForSeenRefer.removeEventListener(seenListener);
+        checkTypingStatus(null);
+        if (userForSeenRefer != null && seenListener != null) {
+            userForSeenRefer.removeEventListener(seenListener);
+        }
     }
 
     @Override
